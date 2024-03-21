@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import Item from './Item';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Item from "./Item";
+
+const baseURL = process.env.BASE_URL || "";
 
 const Inventory = () => {
   const [items, setItems] = useState([]);
@@ -8,13 +10,13 @@ const Inventory = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await axios.get('http://localhost:3500/find');
+        const response = await axios.get(baseURL + "/find");
         setItems(response.data);
         if (response.data.length === 0) {
-          alert('No items in inventory');
+          alert("No items in inventory");
         }
       } catch (error) {
-        console.error('Error fetching items:', error);
+        console.error("Error fetching items:", error);
       }
     };
 
@@ -23,19 +25,19 @@ const Inventory = () => {
 
   const handleUpdate = async () => {
     try {
-      const response = await axios.get('http://localhost:3500/find');
+      const response = await axios.get(baseURL + "/find");
       setItems(response.data);
     } catch (error) {
-      console.error('Error updating items:', error);
+      console.error("Error updating items:", error);
     }
   };
 
   const handleDelete = async () => {
     try {
-      const response = await axios.get('http://localhost:3500/find');
+      const response = await axios.get(baseURL + "/find");
       setItems(response.data);
     } catch (error) {
-      console.error('Error deleting item:', error);
+      console.error("Error deleting item:", error);
     }
   };
 
@@ -52,9 +54,15 @@ const Inventory = () => {
           </tr>
         </thead>
         <tbody>
-          {Array.isArray(items) && items.map((item) => (
-            <Item key={item._id} item={item} onUpdate={handleUpdate} onDelete={handleDelete} />
-          ))}
+          {Array.isArray(items) &&
+            items.map((item) => (
+              <Item
+                key={item._id}
+                item={item}
+                onUpdate={handleUpdate}
+                onDelete={handleDelete}
+              />
+            ))}
         </tbody>
       </table>
     </div>
