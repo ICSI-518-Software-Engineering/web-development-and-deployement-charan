@@ -13,10 +13,6 @@ app.use(cors())
 // Serve static files from the React build directory
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-// Catch-all route to serve the index.html file for all other routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
-});
 
 const dbConnection = async () => {
     try {
@@ -38,6 +34,12 @@ app.use('/uploads', express.static('uploads'));
 app.use(express.json());  
 
 app.use('/', itemRoutes);
+
+
+// Catch-all route to serve the index.html file for all other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+});
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB')
