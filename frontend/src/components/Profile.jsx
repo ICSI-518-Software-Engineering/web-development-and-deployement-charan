@@ -37,7 +37,7 @@ function Profile() {
             <div className="form-group mb-3">
               <input
                 type="text"
-                className="form-control border mt-3"
+                className="form-control border border-primary mt-3"
                 id="name"
                 placeholder="Enter name"
                 value={name}
@@ -47,7 +47,7 @@ function Profile() {
             </div>
             <div className="form-group">
               <textarea
-                className="form-control border  border-double"
+                className="form-control border border-danger border-double"
                 id="description"
                 rows="10"
                 placeholder="Enter description"
