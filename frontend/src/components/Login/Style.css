@@ -1,0 +1,15 @@
+.signLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signMain {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 85vh;
+}
+.signHeading{
+    margin-bottom: 2em;
+}
