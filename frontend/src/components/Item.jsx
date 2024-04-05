@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const baseURL = "http://localhost:3500";
+const baseURL = "http://54.198.103.11";
 
 const Item = ({ item, onUpdate, onDelete }) => {
   const [name, setName] = useState(item.name);

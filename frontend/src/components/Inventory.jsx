@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Item from "./Item";
 
-const baseURL = "http://localhost:3500";
+const baseURL = "http://54.198.103.11";
 
 const Inventory = () => {
   const [items, setItems] = useState([]);
