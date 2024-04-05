@@ -18,8 +18,9 @@ app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 // MongoDB connection
 const dbConnection = async () => {
+    // mongodb+srv://cherry:DdbpGtwHfgJMlWCJ@cluster0.12zbsfz.mongodb.net/inventory-app
     try {
-        await mongoose.connect('mongodb+srv://cherry:DdbpGtwHfgJMlWCJ@cluster0.12zbsfz.mongodb.net/inventory-app', {
+        await mongoose.connect('mongodb://localhost:27017/inventory', {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
