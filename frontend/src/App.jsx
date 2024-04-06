@@ -13,11 +13,11 @@ const App = () => {
   const location = window.location.pathname
   return (
     <>
-      {location !== "/login" && location!== "/signup" && (
+      {location !== "/login" && location !== "/" && location!== "/signup" && (
         <Navbar />
       )}
       <Routes>
-        <Route index element={<Profile />} />
+        <Route index element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
