@@ -1,93 +1,98 @@
-import { Box, Button, TextField } from '@material-ui/core';
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
-import { useNavigate } from 'react-router-dom';
 import React from 'react';
-import "./Style.css";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { Box, Button, TextField } from '@material-ui/core';
 
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required('Name is required'),
-  email: Yup.string().email('Invalid email').required('Email is required'),
-  password: Yup.string().required('Password is required').min(8, 'Password must be at least 8 characters'),
-});
-
-export default function SignupForm() {
+const SignupForm = () => {
   const navigate = useNavigate();
-
-  const handleSignup = async (values, { setSubmitting }) => {
-    let result = await fetch('http://54.198.103.11/signup', {
-      method: 'post',
-      body: JSON.stringify(values),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    result = await result.json();
-
-    if (result.email) {
-      alert('Signup success');
-
-      localStorage.setItem('user', JSON.stringify(result));
-      localStorage.setItem('token', JSON.stringify(result.auth));
-      navigate('/loginuser', { replace: true });
-      navigate(0);
-    } else {
-      alert('Signup failed. Please try again.');
-    }
-
-    setSubmitting(false);
-  };
-
   return (
-    <Formik
-      initialValues={{ name: '', email: '', password: '' }}
-      validationSchema={validationSchema}
-      onSubmit={handleSignup}
-    >
-      {({ isSubmitting }) => (
-        <Form>
-          <Box spacing={3} className='inputFIn2'>
-            <Field
-              as={TextField}
-              name="name"
-              label="Name"
-              variant="outlined"
-              fullWidth
-              margin="normal"
-            />
+    <div>
+      <h1>Signup</h1>
+      <Formik
+        initialValues={{ name: '', email: '', password: '' }}
+        validationSchema={Yup.object({
+          name: Yup.string()
+            .required('Name is required'),
+          email: Yup.string()
+            .email('Invalid email address')
+            .required('Email is required'),
+          password: Yup.string()
+            .min(3, 'Password must be at least 3 characters')
+            .required('Password is required'),
+        })}
+        onSubmit={(values, { setSubmitting }) => {
 
-            <Field
-              as={TextField}
-              name="email"
-              label="Email address"
-              variant="outlined"
-              fullWidth
-              margin="normal"
-            />
+          console.log("valies",values);
+          axios.post('http://54.198.103.11/register', values)
+            .then(response => {
+              console.log('Signup successful!', response);
+              alert("signup success")
+              navigate('/login', { replace: true });
 
-            <Field
-              as={TextField}
-              name="password"
-              variant="outlined"
-              label="Password"
+            })
+            .catch(error => {
+              console.error('Signup failed!', error);
+            })
+            .finally(() => {
+              setSubmitting(false);
+            });
+        }}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            <Box spacing={3} className='inputFIn2'>
+            <div>
+              <Field
+                as={TextField}
+                name="name"
+                label="Name"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+              />
+              <ErrorMessage name="name" />
+            </div>
+            <div>
+              <Field
+                as={TextField}
+                name="email"
+                label="Email Address"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+              />
+              <ErrorMessage name="email" />
+            </div>
+            <div>
+              <Field
+                as={TextField}
+                name="password"
+                label="Password"
+                type="password"
+                variant="outlined"
+                fullWidth
+                margin="normal"
+              />
+              <ErrorMessage name="password" />
+              
+            </div>
+            </Box>
+            <Button
               fullWidth
-              margin="normal"
-              type="password"
-            />
-          </Box>
-
-          <Button
-            fullWidth
-            size="large"
-            type="submit"
-            variant="contained"
-            disabled={isSubmitting}
-          >
-            Sign Up
-          </Button>
-        </Form>
-      )}
-    </Formik>
+              size="large"
+              type="submit"
+              variant="contained"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit'}
+            </Button>
+          </Form>
+        )}
+      </Formik>
+    </div>
   );
-}
+};
+
+export default SignupForm;
