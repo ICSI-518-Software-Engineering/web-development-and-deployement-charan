@@ -17,7 +17,7 @@ export default function Signup(){
             <Box>
                 <h1 className="signHeading">Sign Up</h1>
                 <SignupForm/>
-                <p className="signP">Already have an account? <a className="signinHere" href="/login">Login</a></p>
+                <p className="signP">Doesn't have an account? <a className="signinHere" href="/login">Login</a></p>
             </Box>
         </Box>
     )
