@@ -31,7 +31,7 @@ const Navbar = () => {
         </button>
         <div>
           <div className="navbar-nav">
-            <a className="nav-link" href="/">
+            <a className="nav-link" href="/profile">
               Profile
             </a>
             <a className="nav-link" href="/calculator">
