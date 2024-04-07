@@ -36,7 +36,7 @@ export default function LoginForm() {
 
       localStorage.setItem('user', JSON.stringify(result));
       localStorage.setItem('token', JSON.stringify(result.auth));
-      navigate('/loginuser', { replace: true });
+      navigate('/user-details', { replace: true });
       navigate(0);
     } else {
       alert('Please enter correct details');

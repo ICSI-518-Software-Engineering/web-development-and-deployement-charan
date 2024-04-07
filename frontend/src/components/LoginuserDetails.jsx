@@ -1,4 +1,7 @@
 import React from "react";
+import "./user.css"
+import { FaUserCircle } from "react-icons/fa";
+
 
 export default function LoginUserDetails() {
   const user = localStorage.getItem("user");
@@ -8,10 +11,13 @@ export default function LoginUserDetails() {
   return (
     <div>
       {user ? (
-        <div>
-          <p>Login user details</p>
-          <p>Name: {username}</p>
-          <p>Email: {email}</p>
+        <div className="loginUser">
+          <div className="card">
+          {/* <p>Login user details</p> */}
+          <FaUserCircle className="faCir"/>
+          <p>{username}</p>
+          <p>{email}</p>
+          </div>
         </div>
       ) : (
         <div>

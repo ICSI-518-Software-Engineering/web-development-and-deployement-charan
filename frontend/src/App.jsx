@@ -25,7 +25,7 @@ const App = () => {
         <Route path="/calculator" element={<Calculator />} />
         <Route path="/inventory-app" element={<InventoryApp />} />
         <Route path="/data-fetching" element={<API />} />
-        <Route path="/loginuser" element={<LoginUserDetails/>}/>
+        <Route path="/user-details" element={<LoginUserDetails/>}/>
       </Routes>
     </>
   );
