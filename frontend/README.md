@@ -21,6 +21,12 @@ The Calculator feature enables users to perform addition calculations. It includ
 
 The Navbar component (`Navbar.jsx`) provides navigation links to the Profile and Calculator pages. It is a responsive navigation bar built using Bootstrap.
 
+### 4. Login Component
+The Login component allows users to authenticate themselves by providing their credentials (e.g., username/email and password). Upon successful authentication, it redirects the user to a "user-details" page.
+
+### 5. Signup Component
+The Signup component allows new users to create an account by providing necessary information such as username, email, and password. Upon successful signup, it redirects the user to the login page ("/login") where they can authenticate with their newly created credentials.
+
 ## Technologies Used
 
 - React: A JavaScript library for building user interfaces.
@@ -51,3 +57,9 @@ To run the application locally:
 - `public/`: Contains static assets such as images and HTML files.
 - `README.md`: Documentation file providing information about the application.
 - `package.json`: Metadata file containing project dependencies and scripts.
+
+## Name: sai charan panthulu
+## Public IPv4 DNS::ec2-54-221-169-89.compute-1.amazonaws.com
+## Public IPv4 address: 54.221.169.89
+## Address for the website: http://54.221.169.89/
+## Git Repository : https://github.com/ICSI-518-Software-Engineering/web-development-and-deployement-charan
