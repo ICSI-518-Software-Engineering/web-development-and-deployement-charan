@@ -58,6 +58,12 @@ To run the application locally:
 - `README.md`: Documentation file providing information about the application.
 - `package.json`: Metadata file containing project dependencies and scripts.
 
+### ChatGPT Usage Explanation
+0: No Experience
+
+I choose not to use ChatGPT as a student working on this assignment mostly because I wanted to concentrate on using other tools and methods that are more in line with my present skill set and knowledge. I choose to solve problems and communicate via conventional techniques because of the assignment's scope and my goals. I'm still willing to learn more about ChatGPT and other AI technologies, though, as I pursue my academic and professional goals and continue to advance in my education.
+
+
 ## Name: sai charan panthulu
 ## Public IPv4 DNS::ec2-54-221-169-89.compute-1.amazonaws.com
 ## Public IPv4 address: 54.221.169.89
