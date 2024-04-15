@@ -14,13 +14,13 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Serve static files from the React build directory
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+//app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 // MongoDB connection
 const dbConnection = async () => {
     // mongodb+srv://cherry:DdbpGtwHfgJMlWCJ@cluster0.12zbsfz.mongodb.net/inventory-app
     try {
-        await mongoose.connect('mongodb://localhost:27017/inventory', {
+        await mongoose.connect('mongodb://test:test@54.198.103.11:27017/inventory', {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
@@ -50,9 +50,9 @@ app.post('/add', (req, res) => {
 app.use('/', itemRoutes);
 
 // Catch-all route to serve the index.html file for all other routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
+// });
 
 // Listen on port 3500
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
