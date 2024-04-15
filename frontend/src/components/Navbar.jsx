@@ -43,9 +43,9 @@ const Navbar = () => {
             <a className="nav-link" href="/inventory-app">
               InventoryApp
             </a>
-            {/* <a className="nav-link" href="/user-details">
+            {user &&  <a className="nav-link" href="/user-details">
               user Details
-            </a> */}
+            </a>}
           </div>
         </div>
         <div className="flex gap-4">
