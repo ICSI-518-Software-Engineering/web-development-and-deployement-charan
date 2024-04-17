@@ -20,7 +20,7 @@ app.use(cors());
 const dbConnection = async () => {
     // mongodb+srv://cherry:DdbpGtwHfgJMlWCJ@cluster0.12zbsfz.mongodb.net/inventory-app
     try {
-        await mongoose.connect('mongodb://test:test@54.198.103.11:27017/inventory', {
+        await mongoose.connect('mongodb://test:test@54.226.69.38:27017/inventory', {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });

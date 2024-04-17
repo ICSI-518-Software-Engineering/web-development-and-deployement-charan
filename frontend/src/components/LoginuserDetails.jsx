@@ -9,7 +9,7 @@ export default function LoginUserDetails() {
   const email = JSON.parse(user).email;
   console.log(username);
   return (
-    <div>
+    <div >
       {user ? (
         <div className="loginUser">
           <div className="card">
