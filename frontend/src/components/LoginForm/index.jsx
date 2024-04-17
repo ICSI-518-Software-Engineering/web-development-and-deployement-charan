@@ -21,7 +21,7 @@ export default function LoginForm() {
   // });
 
   const handleLogin = async (values, { setSubmitting }) => {
-    let result = await fetch('http://54.226.69.38:3500/login', {
+    let result = await fetch('http://54.226.69.38/login', {
       method: 'post',
       body: JSON.stringify(values),
       headers: {

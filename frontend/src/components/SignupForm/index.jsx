@@ -25,7 +25,7 @@ const SignupForm = () => {
         onSubmit={(values, { setSubmitting }) => {
 
           console.log("valies",values);
-          axios.post('http://54.226.69.38:3500/register', values)
+          axios.post('http://54.226.69.38/register', values)
             .then(response => {
               console.log('Signup successful!', response);
               alert("signup success")
