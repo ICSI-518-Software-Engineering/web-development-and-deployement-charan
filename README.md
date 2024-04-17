@@ -65,7 +65,7 @@ I choose not to use ChatGPT as a student working on this assignment mostly becau
 
 
 ## Name: sai charan panthulu
-## Public IPv4 DNS::ec2-54-221-169-89.compute-1.amazonaws.com
-## Public IPv4 address: 54.221.169.89
-## Address for the website: http://54.221.169.89/
+## Public IPv4 DNS::ec2-184-73-77-169.compute-1.amazonaws.com
+## Public IPv4 address: 184.73.77.169
+## Address for the website:184.73.77.169
 ## Git Repository : https://github.com/ICSI-518-Software-Engineering/web-development-and-deployement-charan
